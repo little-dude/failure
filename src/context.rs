@@ -26,7 +26,7 @@ without_std! {
             &self.context
         }
 
-        pub(crate) fn with_err<E: Fail>(context: D, _: E) -> Context<D> {
+        pub fn with_err<E: Fail>(context: D, _: E) -> Context<D> {
             Context { context }
         }
     }
@@ -74,7 +74,7 @@ with_std! {
             &self.context
         }
 
-        pub(crate) fn with_err<E: Into<Error>>(context: D, error: E) -> Context<D> {
+        pub fn with_err<E: Into<Error>>(context: D, error: E) -> Context<D> {
             let failure = Either::That(error.into());
             Context { context, failure }
         }
